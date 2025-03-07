@@ -3,40 +3,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/background">
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".MainActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fmCategoryContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
 
 
     <LinearLayout
+        android:id="@+id/btnContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="@dimen/btn_spacing_bottom"
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/padding_main"
-        >
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/buttonCategory"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/button_category"
-            android:backgroundTint="@color/button_bg_blue"
-            style="@style/StyleNavButton"
-            android:layout_weight="1"
-            android:layout_marginEnd="@dimen/button_spacing" />
-
-        <Button
-            android:id="@+id/buttonFavourites"
+            android:id="@+id/btnCategory"
             style="@style/StyleNavButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/button_spacing"
+            android:layout_marginEnd="@dimen/btn_spacing_horizontal"
             android:layout_weight="1"
-            android:backgroundTint="@color/button_bg_red"
+            android:backgroundTint="@color/button_bg_blue_color"
+            android:text="@string/button_category" />
+
+        <Button
+            android:id="@+id/btnFavourites"
+            style="@style/StyleNavButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/btn_spacing_horizontal"
+            android:layout_weight="1"
+            android:backgroundTint="@color/button_bg_red_color"
             android:text="@string/button_favourites"
             app:icon="@drawable/ic_heart"
             app:iconGravity="textEnd"
