@@ -15,9 +15,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btnContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/btnContainer"
@@ -53,7 +51,5 @@
             app:iconGravity="textEnd"
             app:iconTint="@null" />
 
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
