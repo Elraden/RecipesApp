@@ -24,7 +24,24 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.commit {
             setReorderingAllowed(true)
-            add(R.id.fmCategoryContainer, CategoriesListFragment())
+            add(R.id.fmContainer, CategoriesListFragment())
+            addToBackStack(null)
+        }
+
+        binding.btnCategory.setOnClickListener {
+            supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                replace(R.id.fmContainer, CategoriesListFragment())
+                addToBackStack(null)
+            }
+        }
+
+        binding.btnFavourites.setOnClickListener {
+            supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                replace(R.id.fmContainer, FavoritesFragment())
+                addToBackStack(null)
+            }
         }
     }
 }
