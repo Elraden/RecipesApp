@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- PADDINGS -->
     <dimen name="padding_main">16dp</dimen>
     <dimen name="padding_half">8dp</dimen>
-    <dimen name="button_spacing">2dp</dimen>
+
+    <!-- MARGINS -->
+    <dimen name="btn_spacing_horizontal">2dp</dimen>
+    <dimen name="btn_spacing_bottom">8dp</dimen>
+
+    <!-- TEXT SIZE -->
+    <dimen name="btn_text_size">14sp</dimen>
+
+    <!-- CORNER RADIUS -->
+    <dimen name="btn_corner_radius">8dp</dimen>
 </resources>
