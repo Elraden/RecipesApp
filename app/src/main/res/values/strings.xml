@@ -2,4 +2,6 @@
     <string name="app_name">RecipesApp</string>
     <string name="button_category">Категории</string>
     <string name="button_favourites">Избранное</string>
+    <string name="categories_image_description">categories image</string>
+    <string name="burgers">Бургеры</string>
 </resources>
