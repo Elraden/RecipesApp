@@ -4,9 +4,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import com.example.recipesapp.databinding.ActivityMainBinding
-
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -24,14 +25,13 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.commit {
             setReorderingAllowed(true)
-            add(R.id.fmContainer, CategoriesListFragment())
-            addToBackStack(null)
+            add<CategoriesListFragment>(R.id.fmContainer)
         }
 
         binding.btnCategory.setOnClickListener {
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                replace(R.id.fmContainer, CategoriesListFragment())
+                replace<CategoriesListFragment>(R.id.fmContainer)
                 addToBackStack(null)
             }
         }
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnFavourites.setOnClickListener {
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                replace(R.id.fmContainer, FavoritesFragment())
+                replace<FavoritesFragment>(R.id.fmContainer)
                 addToBackStack(null)
             }
         }
