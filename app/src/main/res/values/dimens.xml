@@ -2,11 +2,12 @@
 <resources>
     <!-- PADDINGS -->
     <dimen name="padding_large">16dp</dimen>
-    <dimen name="padding_small">8dp</dimen>
     <dimen name="padding_medium">10dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
 
     <!-- MARGINS -->
     <dimen name="margin_large">16dp</dimen>
+    <dimen name="margin_medium_large">10dp</dimen>
     <dimen name="margin_medium">8dp</dimen>
     <dimen name="margin_small">2dp</dimen>
 

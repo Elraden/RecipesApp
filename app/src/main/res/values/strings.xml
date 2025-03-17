@@ -4,5 +4,5 @@
     <string name="button_favourites">Избранное</string>
     <string name="categories_image_description">categories image</string>
     <string name="burgers">Бургеры</string>
-    <string name="category_image_description">category_image</string>
+    <string name="category_image_description">Изображение для категории %1$s</string>
 </resources>

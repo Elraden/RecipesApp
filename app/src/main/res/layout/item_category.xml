@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/margin_medium"
-    android:layout_marginVertical="@dimen/margin_medium"
+    android:layout_margin="@dimen/margin_medium"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground"
@@ -23,30 +22,25 @@
             android:contentDescription="@string/category_image_description"
             android:scaleType="centerCrop" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvCategoriesTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="@dimen/padding_medium"
-            android:paddingVertical="@dimen/padding_medium">
+            android:layout_marginHorizontal="@dimen/margin_medium_large"
+            android:layout_marginTop="@dimen/margin_medium_large"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:textAppearance="@style/CardTitle"
+            tools:text="Бургеры" />
 
-            <TextView
-                android:id="@+id/tvCategoriesTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_medium"
-                android:textAppearance="@style/CardTitle"
-                tools:text="Бургеры" />
+        <TextView
+            android:id="@+id/tvCategoriesDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_medium_large"
+            android:layout_marginBottom="@dimen/margin_medium_large"
+            android:textAppearance="@style/CardText"
+            tools:text="Рецепты всех популярных видов бургеров" />
 
-            <TextView
-                android:id="@+id/tvCategoriesDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/CardText"
-                tools:text="Рецепты всех популярных видов бургеров" />
-
-        </LinearLayout>
     </LinearLayout>
-
 
 </androidx.cardview.widget.CardView>
