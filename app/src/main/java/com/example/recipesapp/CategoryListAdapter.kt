@@ -14,6 +14,16 @@ import java.io.InputStream
 class CategoryListAdapter(private val dataset: List<Category>) :
     RecyclerView.Adapter<CategoryListAdapter.ViewHolder>() {
 
+    interface OnItemClickListener {
+        fun onItemClick()
+    }
+
+    private var itemClickListener: OnItemClickListener? = null
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        itemClickListener = listener
+    }
+
     class ViewHolder(val binding: ItemCategoryBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(
@@ -42,6 +52,10 @@ class CategoryListAdapter(private val dataset: List<Category>) :
         }
 
         holder.binding.imgCategory.setImageDrawable(drawable)
+
+        holder.itemView.setOnClickListener {
+            itemClickListener?.onItemClick()
+        }
     }
 
     override fun getItemCount(): Int = dataset.size
