@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
@@ -40,15 +41,14 @@ class CategoriesListFragment : Fragment() {
     }
 
     private fun openRecipesByCategoryId(categoryId: Int) {
-        val category = STUB.getCategories().firstOrNull { it.id == categoryId }
-        val categoryName = category?.title ?: ""
-        val categoryImageUrl = category?.imageUrl ?: ""
+        val category =
+            STUB.getCategories().find { it.id == categoryId } ?: STUB.getCategories().first()
 
-        val bundle = Bundle().apply {
-            putInt(ARG_CATEGORY_ID, categoryId)
-            putString(ARG_CATEGORY_NAME, categoryName)
-            putString(ARG_CATEGORY_IMAGE_URL, categoryImageUrl)
-        }
+        val bundle = bundleOf(
+            ARG_CATEGORY_ID to category.id,
+            ARG_CATEGORY_NAME to category.title,
+            ARG_CATEGORY_IMAGE_URL to category.imageUrl
+        )
 
         parentFragmentManager.commit {
             setReorderingAllowed(true)
