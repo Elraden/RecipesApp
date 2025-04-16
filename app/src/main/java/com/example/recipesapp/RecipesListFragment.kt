@@ -14,6 +14,10 @@ import java.io.IOException
 
 class RecipesListFragment : Fragment() {
 
+    companion object {
+        const val ARG_RECIPE = "arg_recipe"
+    }
+
     private var categoryId: Int? = null
     private var categoryName: String? = null
     private var categoryImageUrl: String? = null
@@ -23,8 +27,7 @@ class RecipesListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initBundleData()
-        initHeader()
-        initRecycler()
+        initUI()
     }
 
     private fun initBundleData() {
@@ -41,8 +44,12 @@ class RecipesListFragment : Fragment() {
         return binding.root
     }
 
-    private fun initHeader() {
+    private fun initUI() {
+        val recipes = STUB.getRecipesByCategoryId(categoryId ?: 0)
+        val adapter = RecipeListAdapter(recipes)
+
         binding.tvCategoryTitle.text = categoryName
+        binding.rvRecipes.adapter = adapter
 
         try {
             val inputStream = requireContext().assets.open(categoryImageUrl ?: "")
@@ -51,13 +58,6 @@ class RecipesListFragment : Fragment() {
         } catch (e: IOException) {
             Log.e("IMG_LOAD", "Image not found: $categoryImageUrl", e)
         }
-    }
-
-    private fun initRecycler() {
-        val recipes = STUB.getRecipesByCategoryId(categoryId ?: 0)
-        val adapter = RecipeListAdapter(recipes)
-
-        binding.rvRecipes.adapter = adapter
 
         adapter.setOnItemClickListener(object : RecipeListAdapter.OnItemClickListener {
             override fun onItemClick(recipeId: Int) {
@@ -67,10 +67,18 @@ class RecipesListFragment : Fragment() {
     }
 
     private fun openRecipeByRecipeId(recipeId: Int) {
-        parentFragmentManager.commit {
-            setReorderingAllowed(true)
-            replace<RecipeFragment>(R.id.fmContainer)
-            addToBackStack(null)
+
+        val recipe = STUB.getRecipeByID(recipeId)
+        if (recipe != null) {
+            val bundle = Bundle().apply {
+                putParcelable(ARG_RECIPE, recipe)
+            }
+
+            parentFragmentManager.commit {
+                setReorderingAllowed(true)
+                replace<RecipeFragment>(R.id.fmContainer, args = bundle)
+                addToBackStack(null)
+            }
         }
     }
 }
