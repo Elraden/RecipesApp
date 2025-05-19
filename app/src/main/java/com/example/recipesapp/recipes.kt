@@ -239,8 +239,8 @@ object STUB {
         return if (categoryId == 0) burgerRecipes else emptyList()
     }
 
-    fun getRecipeByID(recipeId: Int): Recipe? {
-        return burgerRecipes.firstOrNull { it.id == recipeId }
+    fun getRecipeByID(recipeId: Int): Recipe {
+        return burgerRecipes.firstOrNull { it.id == recipeId } ?: burgerRecipes.first()
     }
 
     fun getCategories(): List<Category> = categories
