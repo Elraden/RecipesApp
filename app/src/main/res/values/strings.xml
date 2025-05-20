@@ -8,5 +8,6 @@
     <string name="recipe_image_description">Изображение для рецепта %1$s</string>
     <string name="ingredients">Ингредиенты</string>
     <string name="method">Способ приготовления</string>
+    <string name="portion">Порции:</string>
 
 </resources>

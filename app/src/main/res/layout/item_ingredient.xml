@@ -5,8 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:paddingHorizontal="@dimen/padding_inside_card"
-    android:paddingVertical="@dimen/padding_small"
-    >
+    android:paddingVertical="@dimen/padding_small">
 
     <TextView
         android:id="@+id/tvIngredientName"
