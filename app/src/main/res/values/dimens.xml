@@ -2,14 +2,18 @@
 <resources>
     <!-- PADDINGS -->
     <dimen name="padding_large">16dp</dimen>
+    <dimen name="padding_inside_card">12dp</dimen>
     <dimen name="padding_medium">10dp</dimen>
     <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_extra_small">4dp</dimen>
 
     <!-- MARGINS -->
     <dimen name="margin_large">16dp</dimen>
+    <dimen name="margin_inside_card">12dp</dimen>
     <dimen name="margin_medium_large">10dp</dimen>
     <dimen name="margin_medium">8dp</dimen>
     <dimen name="margin_small">2dp</dimen>
+
 
     <!-- TEXT SIZE -->
     <dimen name="text_size_title">20sp</dimen>
