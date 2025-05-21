@@ -76,9 +76,8 @@ class RecipeFragment : Fragment() {
         binding.seekBarPortions.setOnSeekBarChangeListener(object :
             SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                val portionCount = progress + 1
-                binding.tvPortionCount.text = portionCount.toString()
-                ingredientsAdapter.updateIngredients(portionCount)
+                binding.tvPortionCount.text = progress.toString()
+                ingredientsAdapter.updateIngredients(progress)
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
