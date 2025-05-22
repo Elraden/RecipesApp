@@ -73,11 +73,12 @@
 
         <SeekBar
             android:id="@+id/seekBarPortions"
+            style="@style/styleSeekBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_large"
-            android:min="1"
             android:max="5"
+            android:min="1"
             android:progress="1" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -88,6 +89,9 @@
             android:layout_marginTop="@dimen/margin_small"
             android:background="@drawable/rounded_bg_white"
             android:nestedScrollingEnabled="false"
+            android:progressDrawable="@drawable/shape_seekbar_progress"
+            android:thumb="@drawable/shape_seekbar_thumb"
+            android:thumbOffset="0dp"
             tools:listitem="@layout/item_ingredient" />
 
         <TextView

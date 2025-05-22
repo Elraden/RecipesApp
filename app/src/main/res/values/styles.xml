@@ -52,8 +52,14 @@
 
     <style name="TextPortionLabel">
         <item name="android:fontFamily">@font/montserrat_semibold</item>
-        <item name="android:textSize">@dimen/text_size_regular</item>
+        <item name="android:textSize">@dimen/text_size_portion</item>
         <item name="android:textColor">@color/regular_text_color</item>
+    </style>
+
+    <style name="styleSeekBar" parent="Widget.AppCompat.SeekBar">
+        <item name="android:thumb">@drawable/shape_seekbar_thumb</item>
+        <item name="android:progressDrawable">@drawable/shape_seekbar_progress</item>
+        <item name="android:thumbOffset">0dp</item>
     </style>
 
 </resources>

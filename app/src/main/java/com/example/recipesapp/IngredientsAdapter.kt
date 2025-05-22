@@ -28,10 +28,8 @@ class IngredientsAdapter(private val dataset: List<Ingredient>) :
             .setScale(2, RoundingMode.HALF_UP)
             .stripTrailingZeros()
 
-        val formattedQuantity = scaledQuantity.toPlainString()
-
         holder.binding.tvIngredientName.text = ingredient.description
-        holder.binding.tvIngredientAmount.text = "$formattedQuantity ${ingredient.unitOfMeasure}"
+        holder.binding.tvIngredientAmount.text = "${scaledQuantity.toPlainString()} ${ingredient.unitOfMeasure}"
     }
 
     fun updateIngredients(newQuantity: Int) {
