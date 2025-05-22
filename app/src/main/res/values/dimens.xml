@@ -12,6 +12,7 @@
     <dimen name="margin_inside_card">12dp</dimen>
     <dimen name="margin_medium_large">10dp</dimen>
     <dimen name="margin_medium">8dp</dimen>
+    <dimen name="margin_section_inner">6dp</dimen>
     <dimen name="margin_small">2dp</dimen>
 
 
@@ -23,4 +24,5 @@
 
     <!-- CORNER RADIUS -->
     <dimen name="radius_corners">8dp</dimen>
+
 </resources>

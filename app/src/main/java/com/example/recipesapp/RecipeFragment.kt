@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,6 +25,8 @@ class RecipeFragment : Fragment() {
 
     private var recipe: Recipe? = null
     private val binding by lazy { FragmentRecipeBinding.inflate(layoutInflater) }
+
+    private lateinit var ingredientsAdapter: IngredientsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +52,6 @@ class RecipeFragment : Fragment() {
         initRecycler()
     }
 
-
     private fun initUi() {
         binding.tvRecipeTitle.text = recipe?.title ?: "Название неизвестно"
 
@@ -60,14 +62,29 @@ class RecipeFragment : Fragment() {
         } catch (e: IOException) {
             Log.e("IMG_LOAD", "Image not found: ${recipe?.imageUrl}", e)
         }
+        binding.tvPortionCount.text = "1"
     }
 
     private fun initRecycler() {
-        setupRecyclerView(
-            binding.rvIngredients,
-            IngredientsAdapter(recipe?.ingredients ?: emptyList())
-        )
-        setupRecyclerView(binding.rvMethod, MethodAdapter(recipe?.method ?: emptyList()))
+        ingredientsAdapter = IngredientsAdapter(recipe?.ingredients ?: emptyList())
+        val methodAdapter = MethodAdapter(recipe?.method ?: emptyList())
+
+        setupRecyclerView(binding.rvIngredients, ingredientsAdapter)
+
+        setupRecyclerView(binding.rvMethod, methodAdapter)
+
+        binding.seekBarPortions.setOnSeekBarChangeListener(object :
+            SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                binding.tvPortionCount.text = progress.toString()
+                ingredientsAdapter.updateIngredients(progress)
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+
+        })
     }
 
     private fun setupRecyclerView(
@@ -85,8 +102,5 @@ class RecipeFragment : Fragment() {
         divider.dividerInsetEnd = inset
 
         recyclerView.addItemDecoration(divider)
-
     }
-
-
 }
