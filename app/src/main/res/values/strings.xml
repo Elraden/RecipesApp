@@ -9,5 +9,6 @@
     <string name="ingredients">Ингредиенты</string>
     <string name="method">Способ приготовления</string>
     <string name="portion">Порции:</string>
+    <string name="add_to_favorites">Добавить в избранное</string>
 
 </resources>
