@@ -24,6 +24,7 @@ class RecipeFragment : Fragment() {
     }
 
     private var recipe: Recipe? = null
+    private var isFavorite = false
     private val binding by lazy { FragmentRecipeBinding.inflate(layoutInflater) }
 
     private lateinit var ingredientsAdapter: IngredientsAdapter
@@ -63,6 +64,18 @@ class RecipeFragment : Fragment() {
             Log.e("IMG_LOAD", "Image not found: ${recipe?.imageUrl}", e)
         }
         binding.tvPortionCount.text = "1"
+
+        binding.btnFavorite.setImageResource(R.drawable.ic_heart_empty)
+
+        binding.btnFavorite.setOnClickListener {
+            isFavorite = !isFavorite
+            val icon = if (isFavorite) {
+                R.drawable.ic_heart
+            } else {
+                R.drawable.ic_heart_empty
+            }
+            binding.btnFavorite.setImageResource(icon)
+        }
     }
 
     private fun initRecycler() {
